@@ -1,6 +1,7 @@
-<h1>Editing Report</h1>
+<div style="text-align:center">
+    <h1>Edycja Raportu</h1>
+</div>
 
 <%= render 'form', report: @report %>
-
-<%= link_to 'Show', @report %> |
-<%= link_to 'Back', reports_path %>
+<%= link_to (render 'renders/button_back'), reports_path, class:"btn btn-secondary btn-sm" %>
+<%= link_to (render 'renders/button_show'), @report, class:"btn btn-info btn-sm" %>

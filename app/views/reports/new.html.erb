@@ -1,5 +1,6 @@
-<h1>New Report</h1>
-
+<div style="text-align:center">
+    <h1>Nowy Raport</h1>
+</div>
 <%= render 'form', report: @report %>
 
-<%= link_to 'Back', reports_path %>
+<%= link_to (render 'renders/button_back'), reports_path, class:"btn btn-secondary btn-sm" %>
