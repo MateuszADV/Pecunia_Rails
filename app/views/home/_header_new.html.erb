@@ -30,8 +30,8 @@
                 <li class="menu-item">
                     <%= link_to current_user.email, edit_user_registration_path %>
                 </li>           
-                <li class="menu-item">
-                    <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-secondary"  %>
+                <li class="">
+                    <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-secondary", style:"float:right; margin-top:25%"  %>
                 </li>
             <% else %>
                 <li class="menu-item"> 
@@ -44,5 +44,8 @@
        
       
   </ol>
+  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+  </ul>
   
 </nav>
