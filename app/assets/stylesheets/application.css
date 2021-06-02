@@ -393,7 +393,7 @@ div {
   .menu-item {
 	position: relative;
 	line-height: 2.5rem;
-	/* text-align: center; */
+	text-align: center;
   }
   .menu-item a {
 	overflow: hidden;
