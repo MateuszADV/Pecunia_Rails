@@ -15,12 +15,12 @@ chart:
     hoverBackgroundColor: ['rgb(39, 122, 205, 0.5)', 'rgb(0, 0, 0, 0.5)', 'rgb(243, 248, 98, 0.5)', 'rgb(221, 12, 23, 0.5)', 'rgb(229, 184, 70, 0.5)', 'rgb(30, 201, 27, 0.5)']
 #    borderWidth: 0
   options:
-    responsive: true
     elements:
       bar:
         backgroundColor: colorize(false)
         borderColor: colorize(true)
         borderWidth: 5
+        responsive: true
 #    indexAxis: 'y'
     animations:
       tension:
@@ -30,6 +30,12 @@ chart:
         to: 0
         loop: true
     scales:
+#      r:
+#        pointLabels:
+#          display: true
+#          centerPointLabels: true
+#          font:
+#            size: 18
       y:
         min: 0
 #        max: 70
