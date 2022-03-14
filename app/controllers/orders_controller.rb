@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
   # require 'securerandom'
   include OrdersHelper
 
+
+
   # GET /orders or /orders.json
   def index
     # puts "--------------------------------------UUID--------------------------------------------"
@@ -16,6 +18,7 @@ class OrdersController < ApplicationController
     @orders = Order.where(customer_id: params[:customer_id]).order(id: :asc)
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^ TU JESTEM ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     puts params[:customer_id]
+    puts $order_active
     @customer = Customer.find_by(id: params[:customer_id])
     puts @customer.inspect
   end
