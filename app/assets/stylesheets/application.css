@@ -452,3 +452,13 @@ div {
 .modal{
     background-color: rgba(0, 0, 0, 0.60) !important;
 }
+
+/*ITEM FOR SELL*/
+
+.nav-tabs .nav-link.active {
+    background: aqua;
+}
+.nav-tabs .nav-link{
+    background: #a7a8a8;
+    margin-right: 5px;
+}

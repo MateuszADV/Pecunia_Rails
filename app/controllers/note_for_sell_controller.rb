@@ -40,9 +40,11 @@ class NoteForSellController < ApplicationController
   end
 
   def note_for_sell_list
-	@notes = Note.where(:status => "FOR SELL")
-	@note_for_sell_list = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
-	
+    @notes = Note.where(:status => "FOR SELL")
+    @note_for_sell_list = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
+
+	  @coins = Coin.where(:status => "FOR SELL")
+    @coin_for_sell_list = @coins.sort_by {|coin| [coin.currency.country.country_en, coin.denomination]}
   end
 
   private
