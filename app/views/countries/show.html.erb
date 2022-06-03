@@ -47,11 +47,9 @@
   </h3>
   <%= link_to (render 'renders/button_back'), countries_path, class:"btn btn-secondary btn-sm" %>
   <%= link_to (render 'renders/button_edit'), edit_country_path(@country), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#editCountry"} %>  
-  <%
-=begin%>
- <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %> 
-<%
-=end%>
+
+ <%#= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %>
+
 </div>
 
 <div class="modal fade" id="editCountry" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
