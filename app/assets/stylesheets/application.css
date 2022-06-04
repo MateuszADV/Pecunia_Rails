@@ -421,7 +421,10 @@ div {
 
   .navbar-nav .nav-link
   {
-      padding: 2px 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+    /*padding-bottom: 2px;*/
+    /*padding-top: 2px;*/
   }
 
   /* *********** RENDER/data_ad************* */
