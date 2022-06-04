@@ -11,22 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="col-4 field">
+    <%= form.label :continent_code %>
+    <%= form.text_field :continent_code, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="col-4 field">
     <%= form.label :name_pl %>
-    <%= form.text_field :name_pl %>
+    <%= form.text_field :name_pl, class:"form-control form-control-sm" %>
   </div>
 
-  <div class="field">
+  <div class="col-4 field">
     <%= form.label :name_en %>
-    <%= form.text_field :name_en %>
+    <%= form.text_field :name_en, class:"form-control form-control-sm" %>
   </div>
 
-  <div class="field">
+  <div class="col-4 field">
     <%= form.label :file_name %>
-    <%= form.text_field :file_name %>
+    <%= form.text_field :file_name, class:"form-control form-control-sm" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-sm btn-primary" %>
   </div>
 <% end %>

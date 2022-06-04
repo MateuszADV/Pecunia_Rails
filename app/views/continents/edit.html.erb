@@ -2,5 +2,5 @@
 
 <%= render 'form', continent: @continent %>
 
-<%= link_to 'Show', @continent %> |
-<%= link_to 'Back', continents_path %>
+<%= link_to render('renders/button_show'), @continent, class: "btn btn-sm btn-info" %>
+<%= link_to render('renders/button_back'), continents_path, class: "btn btn-sm btn-secondary" %>

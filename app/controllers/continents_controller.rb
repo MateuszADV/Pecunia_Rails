@@ -1,9 +1,11 @@
 class ContinentsController < ApplicationController
   before_action :set_continent, only: %i[ show edit update destroy ]
+  before_action :require_admin_logged_in!
+
 
   # GET /continents or /continents.json
   def index
-    @continents = Continent.all
+    @continents = Continent.all.order(:id)
   end
 
   # GET /continents/1 or /continents/1.json
@@ -65,6 +67,6 @@ class ContinentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def continent_params
-      params.require(:continent).permit(:name_pl, :name_en, :file_name)
+      params.require(:continent).permit(:name_pl, :name_en, :file_name, :continent_code)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_01_171553) do
+ActiveRecord::Schema.define(version: 2022_06_04_154440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 2022_04_01_171553) do
     t.string "file_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "continent_code"
   end
 
   create_table "countries", id: { comment: "Klucz główny" }, comment: "Państwa swiata", force: :cascade do |t|
