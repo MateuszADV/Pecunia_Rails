@@ -1,4 +1,5 @@
 class Country < ApplicationRecord
+	belongs_to :continent
 	has_many :currencies
 	def to_s
 		country_en

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_04_154440) do
+ActiveRecord::Schema.define(version: 2022_06_05_130422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 2022_06_04_154440) do
     t.datetime "updated_at", precision: 6, null: false, comment: "Data modyfikacji"
     t.boolean "exists"
     t.text "description"
+    t.bigint "continent_id", null: false, comment: "Klucz Obcy"
+    t.index ["continent_id"], name: "index_countries_on_continent_id"
   end
 
   create_table "currencies", id: { comment: "Klucz główny" }, comment: "Spis waluty dla danego państwa swiata", force: :cascade do |t|
@@ -284,6 +286,7 @@ ActiveRecord::Schema.define(version: 2022_06_04_154440) do
 
   add_foreign_key "bonds", "currencies"
   add_foreign_key "coins", "currencies"
+  add_foreign_key "countries", "continents"
   add_foreign_key "currencies", "countries"
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
   add_foreign_key "notes", "currencies"
