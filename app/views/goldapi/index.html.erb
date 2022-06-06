@@ -10,48 +10,86 @@
       <table class="table table-sm table-striped table-bordered table-hover" style="font-size: small; background: darkgray">
         <thead class="thead-dark">
         <tr>
-          <th>Time</th>
+          <th colspan="2">Time</th>
           <th>Metal</th>
           <th>Currency</th>
           <th>Exchange</th>
           <th>Symbol</th>
-          <th>Prev Close Price</th>
-          <th>Open Price</th>
-          <th>Low Price</th>
-          <th>High Price</th>
-          <th>Open Time</th>
-          <th>Price</th>
+<!--          <th colspan="2">Prev Close Price</th>-->
+          <th colspan="2">Price</th>
+<!--          <th>Open Price</th>-->
+<!--          <th>Low Price</th>-->
+<!--          <th>High Price</th>-->
+<!--          <th>Open Time</th>-->
+<!--          <th>Price</th>-->
           <th>Change</th>
-          <th>Change %</th>
-          <th>Ask</th>
-          <th>Bid</th>
+<!--          <th>Change %</th>-->
+<!--          <th>Ask</th>-->
+<!--          <th>Bid</th>-->
+          <th colspan="2"></th>
         </tr>
         </thead>
         <tbody>
           <% @goldapi_metal_rates.each do |metal| %>
             <% if (metal.error_gold_api.code == 200) %>
               <tr>
-                <td align="right"><%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
+                <td>
+                  Curreny: <br>
+                  Open:
+                </td>
+                <td align="right">
+                  <%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %><br>
+                  <%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %>
+                </td>
                 <td><%= metal.metal %></td>
                 <td><%= metal.currency %></td>
                 <td><%= metal.exchange %></td>
                 <td><%= metal.symbol %></td>
-                <td align="right"><%= metal.prev_close_price %></td>
-                <td align="right"><%= metal.open_price %></td>
-                <td align="right"><%= number_to_currency(metal.low_price, unit:"", precision: 3, format: "%n%u") %></td>
-                <td align="right"><%= metal.high_price %></td>
-                <td align="right"><%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
-                <td align="right"><%= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>
-                <td class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
-                  <%= number_to_currency(metal.ch, unit:"", precision: 2, format: "%n%u") %>
-                  <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                <td>
+                  <span>Close: </span><br>
+                  <span>Open: </span><br>
+                  <span>Current: </span><br>
+                  <span>Low: </span><br>
+                  <span>High: </span>
                 </td>
-                <td class="<%= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
-                  <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
-                  <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                <td style="text-align: right">
+<!--                  <%#= metal.prev_close_price %><br>-->
+                  <%= number_to_currency(metal.prev_close_price, unit:"$", precision: 2, format: "%n%u") %><br>
+<!--                  <%#= metal.open_price %><br>-->
+                  <%= number_to_currency(metal.open_price, unit:"$", precision: 2, format: "%n%u") %><br>
+                  <%= number_to_currency(metal.price, unit:"$", precision: 2, format: "%n%u") %><br>
+                  <%= number_to_currency(metal.low_price, unit:"$", precision: 2, format: "%n%u") %><br>
+                  <%#= metal.high_price %>
+                  <%= number_to_currency(metal.high_price, unit:"$", precision: 2, format: "%n%u") %><br>
                 </td>
-                <td align="right"><%= metal.ask %></td>
-                <td align="right"><%= metal.bid %></td>
+<!--                <td align="right"><%#= metal.open_price %></td>-->
+<!--                <td align="right"><%#= number_to_currency(metal.low_price, unit:"", precision: 3, format: "%n%u") %></td>-->
+<!--                <td align="right"><%#= metal.high_price %></td>-->
+<!--                <td align="right"><%#= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>-->
+<!--                <td align="right"><%#= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>-->
+                <td style="vertical-align: middle; background-color: #151515;">
+                  <div class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
+                    <%= number_to_currency(metal.ch, unit:" $", precision: 2, format: "%n%u") %>
+                    <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </div>
+                  <div class="<%= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
+                    <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
+                    <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </div>
+
+                </td>
+<!--                <td class="<%#= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">-->
+                  <%#= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
+                  <%#= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+<!--                </td>-->
+                <td align="right">
+                  ask:<br>
+                  bid:
+                  </td>
+                <td align="right">
+                  <%= metal.bid %><br>
+                  <%= metal.ask %>
+                </td>
               </tr>
             <% end %>
           <% end %>
