@@ -67,7 +67,8 @@
 <!--                <td align="right"><%#= metal.high_price %></td>-->
 <!--                <td align="right"><%#= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>-->
 <!--                <td align="right"><%#= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>-->
-                <td style="vertical-align: middle; background-color: #151515;">
+<!--                <td style="vertical-align: middle; background-color: #151515;">-->
+                <td>
                   <div class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
                     <%= number_to_currency(metal.ch, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
@@ -75,6 +76,14 @@
                   <div class="<%= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
                     <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
                     <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </div>
+                  <div class="<%= metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %>" style="background-color: darkgray; min-width: 70px;" align="right">
+                    <%= number_to_currency(metal.high_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
+                    <%= metal.high_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </div>
+                  <div class="<%= metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %>" style="background-color: darkgray; min-width: 70px;" align="right">
+                    <%= number_to_currency(metal.low_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
+                    <%= metal.low_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </div>
 
                 </td>
