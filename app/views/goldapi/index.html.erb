@@ -23,7 +23,7 @@
 <!--          <th>High Price</th>-->
 <!--          <th>Open Time</th>-->
 <!--          <th>Price</th>-->
-          <th>Change</th>
+          <th colspan="2">Change</th>
 <!--          <th>Change %</th>-->
 <!--          <th>Ask</th>-->
 <!--          <th>Bid</th>-->
@@ -81,6 +81,12 @@
 <!--                <td align="right"><%#= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>-->
 <!--                <td align="right"><%#= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>-->
 <!--                <td style="vertical-align: middle; background-color: #151515;">-->
+                <td style="padding: 0;">
+                  <div class="change-description">Current</div>
+                  <div class="change-description">Current</div>
+                  <div class="change-description">Max UP</div>
+                  <div class="change-description">Max DOWN</div>
+                </td>
                 <td style="padding: 0;">
                   <div class="<%= metal.ch > 0 ? 'up' : 'down' %> change change-bacground-A">
                     <%= number_to_currency(metal.ch, unit:" $", precision: 2, format: "%n%u") %>
