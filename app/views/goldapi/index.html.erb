@@ -11,10 +11,11 @@
         <thead class="thead-dark">
         <tr>
           <th colspan="2">Time</th>
-          <th>Metal</th>
-          <th>Currency</th>
-          <th>Exchange</th>
-          <th>Symbol</th>
+          <th colspan="2"></th>
+<!--          <th>Metal</th>-->
+<!--          <th>Currency</th>-->
+<!--          <th>Exchange</th>-->
+<!--          <th>Symbol</th>-->
 <!--          <th colspan="2">Prev Close Price</th>-->
           <th colspan="2">Price</th>
 <!--          <th>Open Price</th>-->
@@ -41,10 +42,22 @@
                   <%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %><br>
                   <%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %>
                 </td>
-                <td><%= metal.metal %></td>
-                <td><%= metal.currency %></td>
-                <td><%= metal.exchange %></td>
-                <td><%= metal.symbol %></td>
+                <td>
+                  <span>Metal:</span><br/>
+                  <span>Currency:</span><br/>
+                  <span>Exchange:</span><br/>
+                  <span>Symbol:</span>
+                </td>
+                <td>
+                  <%= metal.metal %><br>
+                  <%= metal.currency %><br>
+                  <%= metal.exchange %><br>
+                  <%= metal.symbol %>
+                </td>
+<!--                <td><%#= metal.metal %></td>-->
+<!--                <td><%#= metal.currency %></td>-->
+<!--                <td><%#= metal.exchange %></td>-->
+<!--                <td><%#= metal.symbol %></td>-->
                 <td>
                   <span>Close: </span><br>
                   <span>Open: </span><br>
@@ -68,20 +81,20 @@
 <!--                <td align="right"><%#= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>-->
 <!--                <td align="right"><%#= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>-->
 <!--                <td style="vertical-align: middle; background-color: #151515;">-->
-                <td>
-                  <div class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
+                <td style="padding: 0;">
+                  <div class="<%= metal.ch > 0 ? 'up' : 'down' %> change change-bacground-A">
                     <%= number_to_currency(metal.ch, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </div>
-                  <div class="<%= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
+                  <div class="<%= metal.chp > 0 ? 'up' : 'down' %> change change-bacground-A">
                     <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
                     <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </div>
-                  <div class="<%= metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %>" style="background-color: darkgray; min-width: 70px;" align="right">
+                  <div class="<%= metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
                     <%= number_to_currency(metal.high_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.high_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </div>
-                  <div class="<%= metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %>" style="background-color: darkgray; min-width: 70px;" align="right">
+                  <div class="<%= metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
                     <%= number_to_currency(metal.low_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.low_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </div>
