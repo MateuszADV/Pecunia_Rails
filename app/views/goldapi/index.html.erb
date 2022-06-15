@@ -38,9 +38,9 @@
                   Curreny: <br>
                   Open:
                 </td>
-                <td align="right">
-                  <%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %><br>
-                  <%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %>
+                <td align="right" style="width: 120px">
+                  <span style="display: ruby-base"><%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></span><br>
+                  <span style="display: ruby-base"><%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></span>
                 </td>
                 <td>
                   <span>Metal:</span><br/>
@@ -58,22 +58,22 @@
 <!--                <td><%#= metal.currency %></td>-->
 <!--                <td><%#= metal.exchange %></td>-->
 <!--                <td><%#= metal.symbol %></td>-->
-                <td>
-                  <span>Close: </span><br>
-                  <span>Open: </span><br>
-                  <span>Current: </span><br>
-                  <span>Low: </span><br>
-                  <span>High: </span>
+                <td class="change-bacground-A">
+                  <span class="price-close">Close: </span>
+                  <span class="price-open">Open: </span>
+                  <span class="price-current">Current: </span>
+                  <span class="price-low">Low: </span>
+                  <span class="price-high">High: </span>
                 </td>
-                <td style="text-align: right">
+                <td class = "change-bacground-A" style="text-align: right">
 <!--                  <%#= metal.prev_close_price %><br>-->
-                  <%= number_to_currency(metal.prev_close_price, unit:"$", precision: 2, format: "%n%u") %><br>
+                  <span class="price-close"><%= number_to_currency(metal.prev_close_price, unit:"$", precision: 2, format: "%n%u") %></span>
 <!--                  <%#= metal.open_price %><br>-->
-                  <%= number_to_currency(metal.open_price, unit:"$", precision: 2, format: "%n%u") %><br>
-                  <%= number_to_currency(metal.price, unit:"$", precision: 2, format: "%n%u") %><br>
-                  <%= number_to_currency(metal.low_price, unit:"$", precision: 2, format: "%n%u") %><br>
+                  <span class="price-open"><%= number_to_currency(metal.open_price, unit:"$", precision: 2, format: "%n%u") %></span>
+                  <span class="price-current"><%= number_to_currency(metal.price, unit:"$", precision: 2, format: "%n%u") %></span>
+                  <span class="price-low"><%= number_to_currency(metal.low_price, unit:"$", precision: 2, format: "%n%u") %></span>
                   <%#= metal.high_price %>
-                  <%= number_to_currency(metal.high_price, unit:"$", precision: 2, format: "%n%u") %><br>
+                  <span class="price-high"><%= number_to_currency(metal.high_price, unit:"$", precision: 2, format: "%n%u") %><br></span>
                 </td>
 <!--                <td align="right"><%#= metal.open_price %></td>-->
 <!--                <td align="right"><%#= number_to_currency(metal.low_price, unit:"", precision: 3, format: "%n%u") %></td>-->
@@ -81,29 +81,29 @@
 <!--                <td align="right"><%#= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>-->
 <!--                <td align="right"><%#= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>-->
 <!--                <td style="vertical-align: middle; background-color: #151515;">-->
-                <td style="padding: 0;">
-                  <div class="change-description">Current</div>
-                  <div class="change-description">Current</div>
-                  <div class="change-description">Max UP</div>
-                  <div class="change-description">Max DOWN</div>
+                <td style="padding: 0; width: 80px">
+                  <span class="change-description">Current</span>
+                  <span class="change-description">Current</span>
+                  <span class="change-description">Max UP</span>
+                  <span class="change-description">Max DOWN</span>
                 </td>
-                <td style="padding: 0;">
-                  <div class="<%= metal.ch > 0 ? 'up' : 'down' %> change change-bacground-A">
+                <td style="padding: 0; width: 80px">
+                  <span class="<%= metal.ch > 0 ? 'up' : 'down' %> change change-bacground-A">
                     <%= number_to_currency(metal.ch, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
-                  </div>
-                  <div class="<%= metal.chp > 0 ? 'up' : 'down' %> change change-bacground-A">
+                  </span>
+                  <span class="<%= metal.chp > 0 ? 'up' : 'down' %> change change-bacground-A">
                     <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
                     <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
-                  </div>
-                  <div class="<%= metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
+                  </span>
+                  <span class="<%= metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
                     <%= number_to_currency(metal.high_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.high_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
-                  </div>
-                  <div class="<%= metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
+                  </span>
+                  <span class="<%= metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
                     <%= number_to_currency(metal.low_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.low_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
-                  </div>
+                  </span>
 
                 </td>
 <!--                <td class="<%#= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">-->

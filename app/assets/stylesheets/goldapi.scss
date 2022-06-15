@@ -26,11 +26,43 @@
 
 .change
 {
+  display: block;
   min-width: 80px;
   text-align: right;
 }
 
 .change-description
 {
+  display: block;
   width: 80px;
+}
+
+.price-close
+{
+  display: block;
+  color: yellow;
+}
+
+.price-open
+{
+  display: block;
+  color: chartreuse;
+}
+
+.price-current
+{
+  display: block;
+  color: blue;
+}
+
+.price-low
+{
+  display: block;
+  color: red;
+}
+
+.price-high
+{
+  display: block;
+  color: green;
 }
