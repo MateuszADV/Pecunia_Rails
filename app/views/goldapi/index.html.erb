@@ -62,18 +62,16 @@
                   <span class="price-close">Close: </span>
                   <span class="price-open">Open: </span>
                   <span class="price-current">Current: </span>
-                  <span class="price-low">Low: </span>
                   <span class="price-high">High: </span>
+                  <span class="price-low">Low: </span>
                 </td>
                 <td class = "change-bacground-A" style="text-align: right">
 <!--                  <%#= metal.prev_close_price %><br>-->
                   <span class="price-close"><%= number_to_currency(metal.prev_close_price, unit:"$", precision: 2, format: "%n%u") %></span>
-<!--                  <%#= metal.open_price %><br>-->
                   <span class="price-open"><%= number_to_currency(metal.open_price, unit:"$", precision: 2, format: "%n%u") %></span>
                   <span class="price-current"><%= number_to_currency(metal.price, unit:"$", precision: 2, format: "%n%u") %></span>
-                  <span class="price-low"><%= number_to_currency(metal.low_price, unit:"$", precision: 2, format: "%n%u") %></span>
-                  <%#= metal.high_price %>
                   <span class="price-high"><%= number_to_currency(metal.high_price, unit:"$", precision: 2, format: "%n%u") %><br></span>
+                  <span class="price-low"><%= number_to_currency(metal.low_price, unit:"$", precision: 2, format: "%n%u") %></span>
                 </td>
 <!--                <td align="right"><%#= metal.open_price %></td>-->
 <!--                <td align="right"><%#= number_to_currency(metal.low_price, unit:"", precision: 3, format: "%n%u") %></td>-->
