@@ -239,6 +239,14 @@ pl:
           attributes:
             name:
               blank: " - Pole nie może być puste!"
+        order_item:
+          attributes:
+            quantity:
+              blank: " - Pole nie może być puste!"
+              exclusion: " - Musi być wieksze od '0'"
+            final_price:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
   tables:
     country:
       headers:

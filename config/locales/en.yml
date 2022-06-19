@@ -270,6 +270,14 @@ en:
           attributes:
             name:
               blank: " Can't be blanck!"
+        order_item:
+          attributes:
+            quantity:
+              blank: " - Can't be blank!"
+              exclusion: " - Must be greater than '0'"
+            final_price:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
   tables:
     country:
       headers:

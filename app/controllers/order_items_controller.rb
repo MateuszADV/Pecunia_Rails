@@ -106,7 +106,8 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to order_item_url(@order_item), notice: "Order item was successfully created." }
+        # format.html { redirect_to order_item_url(@order_item), notice: "Order item was successfully created." }
+        format.html { redirect_to order_order_items_path(@order_item.order_id), notice: "Order item was successfully created." }
         format.json { render :show, status: :created, location: @order_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -119,7 +120,8 @@ class OrderItemsController < ApplicationController
   def update
     respond_to do |format|
       if @order_item.update(order_item_params)
-        format.html { redirect_to order_item_url(@order_item), notice: "Order item was successfully updated." }
+        # format.html { redirect_to order_item_url(@order_item), notice: "Order item was successfully updated." }
+        format.html { redirect_to order_order_items_path(@order_item.order_id), notice: "Order item was successfully updated." }
         format.json { render :show, status: :ok, location: @order_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
