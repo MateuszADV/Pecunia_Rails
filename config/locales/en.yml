@@ -278,6 +278,7 @@ en:
             final_price:
               blank: " - Can't be blank!"
               not_a_number: " - Is not a number"
+              greater_than_or_equal_to: "- Greater than or equal to '0'"
   tables:
     country:
       headers:

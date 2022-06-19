@@ -247,6 +247,7 @@ pl:
             final_price:
               blank: " - Pole nie może być puste!"
               not_a_number: " - Podana wartość nie jest liczbą"
+              greater_than_or_equal_to: " - Cena musi być równa lub większa od '0'"
   tables:
     country:
       headers:
