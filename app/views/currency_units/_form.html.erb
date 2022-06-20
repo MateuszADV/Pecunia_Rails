@@ -1,0 +1,55 @@
+<%= form_with(model: currency_unit) do |form| %>
+  <% if currency_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(currency_unit.errors.count, "error") %> prohibited this currency_unit from being saved:</h2>
+
+      <ul>
+        <% currency_unit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%#= form.label :country_id %>
+    <%= form.label :Country%>
+    <% form.text_field :country_id  %>
+    <%= form.select :country_id, @countries.all.map { |b| [b.country_en, b.id]}, {:include => ""}, class:"form-control  form-control-sm" %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_name_en %>
+    <%= form.text_field :unit_name_en %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_name_pl %>
+    <%= form.text_field :unit_name_pl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cod %>
+    <%= form.text_field :cod %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_format %>
+    <%= form.text_field :unit_format %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

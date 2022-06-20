@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Currency Units</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark" style="font-size: 14px">
+    <tr>
+      <th>Id</th>
+      <th>Country</th>
+      <th>Unit name en</th>
+      <th>Unit name pl</th>
+      <th>Cod</th>
+      <th>Unit</th>
+      <th>Unit format</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currency_units.each do |currency_unit| %>
+      <tr>
+        <td><%= currency_unit.id %></td>
+        <td><%= currency_unit.country.country_en %></td>
+        <td><%= currency_unit.unit_name_en %></td>
+        <td><%= currency_unit.unit_name_pl %></td>
+        <td><%= currency_unit.cod %></td>
+        <td><%= currency_unit.unit %></td>
+        <td><%= currency_unit.unit_format %></td>
+        <td><%= currency_unit.description %></td>
+        <td><%= link_to 'Show', currency_unit %></td>
+        <td><%= link_to 'Edit', edit_currency_unit_path(currency_unit) %></td>
+        <td><%= link_to 'Destroy', currency_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Currency Unit', new_currency_unit_path %>

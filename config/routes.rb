@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :continents
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   
     resources :signatures
@@ -122,6 +122,10 @@ Rails.application.routes.draw do
     resources :goldapi, only: [:index]
 
     resources :continents
+    resources :currency_units
+    resources :countries do
+      resources :currency_units
+    end
 
     mount ReportsKit::Engine, at: '/'
 

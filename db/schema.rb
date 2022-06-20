@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_04_154440) do
+ActiveRecord::Schema.define(version: 2022_06_20_172742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 2022_06_04_154440) do
     t.datetime "updated_at", precision: 6, null: false, comment: "Data modyfikacji"
     t.boolean "exists"
     t.text "description"
+    t.bigint "continent_id", null: false, comment: "Klucz Obcy"
+    t.index ["continent_id"], name: "index_countries_on_continent_id"
   end
 
   create_table "currencies", id: { comment: "Klucz główny" }, comment: "Spis waluty dla danego państwa swiata", force: :cascade do |t|
@@ -151,6 +153,19 @@ ActiveRecord::Schema.define(version: 2022_06_04_154440) do
     t.string "pattern", comment: "Rodzaj elementu"
     t.string "currency_series"
     t.index ["country_id"], name: "index_currencies_on_country_id"
+  end
+
+  create_table "currency_units", force: :cascade do |t|
+    t.bigint "country_id", null: false
+    t.string "unit_name_en"
+    t.string "unit_name_pl"
+    t.string "cod"
+    t.string "unit"
+    t.string "unit_format"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_currency_units_on_country_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -284,8 +299,10 @@ ActiveRecord::Schema.define(version: 2022_06_04_154440) do
 
   add_foreign_key "bonds", "currencies"
   add_foreign_key "coins", "currencies"
+  add_foreign_key "countries", "continents"
   add_foreign_key "currencies", "countries"
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
+  add_foreign_key "currency_units", "countries"
   add_foreign_key "notes", "currencies"
   add_foreign_key "notes", "currencies", name: "notes_currency_id_fkey"
   add_foreign_key "order_items", "bonds"
