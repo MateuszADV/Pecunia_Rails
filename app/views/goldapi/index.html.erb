@@ -94,7 +94,7 @@
                     <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
                     <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </span>
-                  <span class="<%= metal.high_price - metal.prev_close_price == 0 ? 'midle' : metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
+                  <span class="<%= metal.high_price - metal.prev_close_price == 0 ? 'midle' : metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
                     <%= number_to_currency(metal.high_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
                     <%= metal.high_price - metal.prev_close_price == 0 ? (render 'renders/icon_arrow_expand') : metal.high_price - metal.prev_close_price > 0 ?(render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                   </span>
