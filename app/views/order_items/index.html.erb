@@ -24,9 +24,10 @@
       <th class="p-1 m-1">Final price</th>
       <th class="p-1 m-1">Total</th>
       <th class="p-1 m-1">Description</th>
-      <th class="p-1 m-1">Note</th>
-      <th class="p-1 m-1">Coin</th>
-      <th class="p-1 m-1" >Bond</th>
+      <th class="p-1 m-1">Pattern</th>
+<!--      <th class="p-1 m-1">Note</th>-->
+<!--      <th class="p-1 m-1">Coin</th>-->
+<!--      <th class="p-1 m-1" >Bond</th>-->
       <th class="p-1 m-1" colspan="2"></th>
     </tr>
   </thead>
@@ -73,10 +74,19 @@
         <td class = "p-1 m-1" style="text-align: right"><%= order_item.final_price %></td>
         <td class = "p-1 m-1" style="text-align: right"><%= order_item.quantity  * order_item.final_price  %></td>
         <td class = "p-1 m-1"><%= order_item.description %></td>
-        <td class = "p-1 m-1"><%= order_item.note_id %></td>
-        <td class = "p-1 m-1"><%= order_item.coin_id %></td>
-        <td class = "p-1 m-1"><%= order_item.bond_id %></td>
-        <td class = "p-1 m-1" style = "width: 52px">
+        <td class = "p-1 m-1">
+          <% if order_item.note_id != nil %>
+            <%= order_item.pattern + " (" %><%= order_item.note_id %>)
+          <% elsif order_item.coin_id != nil %>
+            <%= order_item.pattern + " (" %><%= order_item.coin_id %>)
+          <% elsif order_item.bond_id != nil%>
+            <%= order_item.pattern + " (" %><%= order_item.bond_id %>)
+          <% end %>
+        </td>
+<!--        <td class = "p-1 m-1"><%#= order_item.note_id %></td>-->
+<!--        <td class = "p-1 m-1"><%#= order_item.coin_id %></td>-->
+<!--        <td class = "p-1 m-1"><%#= order_item.bond_id %></td>-->
+        <td class = "p-1 m-1" style = "width: 56px">
           <%= link_to render('renders/button_show_small_icon'), order_item, class: "btn btn-info btn-vsm" %>
           <% if order_item.order.order_status != "Close" %>
             <%= link_to render('renders/button_edit_small_icon'), edit_order_item_path(order_item), class: "btn btn-primary btn-vsm" %>
