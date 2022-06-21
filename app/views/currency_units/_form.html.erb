@@ -45,6 +45,15 @@
   </div>
 
   <div class="field">
+    <%= form.label :status %>
+    <%#= form.text_field :status %>
+    <%= form.select :status, (@status_units.collect { |m| [m[0], m[0]] }), class:"form-control form-control-sm" %>
+    <% @currency_unit.errors.full_messages_for(:status).each do |message| %>
+      <div  class="alert alert-danger" role="alert"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>

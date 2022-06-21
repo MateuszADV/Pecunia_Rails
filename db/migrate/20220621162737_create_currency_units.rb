@@ -7,6 +7,7 @@ class CreateCurrencyUnits < ActiveRecord::Migration[6.1]
       t.string :cod
       t.string :unit
       t.string :unit_format
+      t.string :status
       t.text :description
 
       t.timestamps

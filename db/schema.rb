@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_172742) do
+ActiveRecord::Schema.define(version: 2022_06_21_162737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 2022_06_20_172742) do
     t.string "cod"
     t.string "unit"
     t.string "unit_format"
+    t.string "status"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

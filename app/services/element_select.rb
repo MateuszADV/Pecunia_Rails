@@ -12,4 +12,6 @@ class ElementSelect < ActiveRecord::Base
 
     enum shipment_type: ["Register Priority", "Economic Registered", "InPost Parcel Locker", "Pickup In person"]
 
+    enum status_unit: ["Current", "Active", "Old"]
+
 end
