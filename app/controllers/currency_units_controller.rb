@@ -9,6 +9,7 @@ class CurrencyUnitsController < ApplicationController
 
   # GET /currency_units/1 or /currency_units/1.json
   def show
+    @country = @currency_unit.country
   end
 
   # GET /currency_units/new
