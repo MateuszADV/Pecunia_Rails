@@ -2,4 +2,4 @@
 
 <%= render 'form', currency_unit: @currency_unit %>
 
-<%= link_to 'Back', currency_units_path %>
+<%= link_to render('renders/button_back'), currency_units_path, class: "btn btn-secondary btn-sm" %>

@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
+<!--<p>-->
+<!--  <strong>Country:</strong>-->
+  <%#= @currency_unit.country_id %>
+<!--</p>-->
 <p>
   <strong>Country:</strong>
-  <%= @currency_unit.country_id %>
+  <%= @currency_unit.country.country_en %>
 </p>
 
 <p>
@@ -40,5 +44,5 @@
   <%= @currency_unit.description %>
 </p>
 
-<%= link_to 'Edit', edit_currency_unit_path(@currency_unit) %> |
-<%= link_to 'Back', currency_units_path %>
+<%= link_to render('renders/button_edit'), edit_currency_unit_path(@currency_unit), class: "btn btn-primary btn-sm" %>
+<%= link_to render('renders/button_back'), currency_units_path, class: "btn btn-secondary btn-sm" %>
