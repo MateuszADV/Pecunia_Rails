@@ -34,7 +34,10 @@
         <td class="p-1 m-1"><%= currency_unit.status %></td>
         <td class="p-1 m-1"><%= currency_unit.description %></td>
         <td class="p-1 m-1" style = "width: 56px">
-          <%= link_to render('renders/button_show_small_icon'), currency_unit, class: "btn btn-info btn-vsm" %>
+          <%= link_to render('renders/button_show_small_icon'), currency_unit,{class:"btn btn-info btn-vsm", 'data-toggle' => "modal", 'data-target' => "#" + "CU"+ currency_unit.id.to_s} %>
+          <div class="modal fade" id=<%= "CU" + currency_unit.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <%= render 'show_modal', currency_unit: currency_unit%>
+          </div>
           <%= link_to render('renders/button_edit_small_icon'), edit_currency_unit_path(currency_unit), class: "btn btn-primary btn-vsm" %>
         </td>
         <td class="p-1 m-1">
