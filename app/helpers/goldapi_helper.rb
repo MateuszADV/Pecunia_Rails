@@ -3,18 +3,20 @@ module GoldapiHelper
   def goldapi_stat(key)
     response = RestClient.get("https://www.goldapi.io/api/stat",
                               {'x-access-token' => key}) {|response, request, result| response }
-    # puts response.code
-    # puts response.body
-    # puts response.headers
+    puts "=============================================================="
+    puts response.code
+    puts response.body
+    puts response.headers
     data = response.body
-    # puts data
+    puts data
+    puts "========================================================="
     result = JSON.parse(data)
     @stat_gold_api = StatGoldApi.new
     @stat_gold_api.today = result["requests_today"]
     @stat_gold_api.yesterday = result["requests_yesterday"]
     @stat_gold_api.this_month = result["requests_month"]
     @stat_gold_api.last_month = result["requests_last_month"]
-    # puts @stat_gold_api.to_s
+    puts @stat_gold_api.to_s
   end
 
   def goldapi_metal_rate(metal, currency, key)
