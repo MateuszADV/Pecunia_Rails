@@ -24,24 +24,20 @@
               <%= note.currency.country.country_en + ": " %>
               <%= number_with_delimiter(note.denomination, delimiter: " ") + " " + note.name_currency + " Data: " + note.note_date  %>
             </strong><br/>
-            <%
-=begin%>
- <% if user_signed_in? && current_user.role == 'admin' %>
-              <%= "Cena zakupu: " + note.price_buy.to_s + "zł/szt" %><br/>
-            <% end %>
-              <%= "Cena Sprzedaży: " + note.price_sell.to_s + "zł/szt" %><br/>
+
+ <%# if user_signed_in? && current_user.role == 'admin' %>
+<!--              <%#= "Cena zakupu: " + note.price_buy.to_s + "zł/szt" %><br/>-->
+            <%# end %>
+<!--              <%#= "Cena Sprzedaży: " + note.price_sell.to_s + "zł/szt" %><br/>-->
              
-<%
-=end%>
+
           </div>
         </td>
      
-        <%
-=begin%>
-        <td><%= note.making %></td>
-        <td><%= note.quality %></td> 
-<%
-=end%>       
+
+<!--        <td><%#= note.making %></td>-->
+<!--        <td><%#= note.quality %></td> -->
+
     
         <% if user_signed_in? && current_user.role == 'admin' %>
           <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
