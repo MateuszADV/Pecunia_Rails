@@ -58,14 +58,14 @@ class ExchangeRate
         rate_gold = RateGold.new
         rate_gold.date = g["data"]
         rate_gold.price_for_gram = g["cena"]
-        rate_gold.price_for_ounce = g["cena"] * 31.1
+        rate_gold.price_for_ounce = g["cena"] * 31.1034768
         @rates_gold_list.push(rate_gold)
       end
       puts" ------------------------------------------------------------"
       printf " | %-15s | %-10s | %-14s | %-9s| \n","Data", "Cena/g", "Cena/Oz", "Zmiana"
       @rates_gold_list.each.with_index do |g, i|
-        @i = @rates_gold_list[i].price_for_gram
-        @j = @rates_gold_list[i-1].price_for_gram
+        @i = @rates_gold_list[i].price_for_ounce
+        @j = @rates_gold_list[i-1].price_for_ounce
         g.change = percentage_change(@i, @j)
         puts g.to_s
       end
