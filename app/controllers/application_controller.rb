@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
 
   def api_metal_price
     printf "\033[;41m=================================Api Metla=====================================\033[0m\n"
-    api_metal
-    api_metal_console
+    # api_metal
+    # api_metal_console
     printf "\033[;41m================================Een Api Metal==================================\033[0m\n"
   end
   def require_user_logged_in_admin!
